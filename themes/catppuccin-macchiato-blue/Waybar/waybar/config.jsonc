@@ -1,0 +1,167 @@
+{
+    "position": "bottom",
+    "margin-bottom": 15,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": [
+        "clock",
+        "cpu",
+        "temperature",
+        "disk",
+        "memory"
+    ],
+    "modules-center": [
+        "tray",
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/waybar-media",
+        "pulseaudio",
+        "network",
+        "bluetooth",
+        "custom/notification"
+    ],
+    "clock": {
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#fde487'><b>{}</b></span>",
+                "days": "<span color='#5e579c'><b>{}</b></span>",
+                "weeks": "<span color='#c1fced'><b>W{}</b></span>",
+                "weekdays": "<span color='#d66b1b'><b>{}</b></span>",
+                "today": "<span color='#fd5f55'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5, // 5 workspaces by default on every monitor
+            "HDMI-A-1": 3 // but only three on HDMI-A-1
+        }
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 20,
+    },
+    "pulseaudio": {
+        "format": "Volume set to {volume}% {icon}",
+        "format-bluetooth": "Volume set to {volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "ignored-sinks": [
+            "Easy Effects Sink"
+        ]
+    },
+    "network": {
+        "interface": "wlp5s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+    "custom/notification": {
+        "tooltip": true,
+        "format": "<span size='16pt'>{icon}</span>",
+        "format-icons": {
+            "notification": "󱅫",
+            "none": "󰂜",
+            "dnd-notification": "󰂠",
+            "dnd-none": "󰪓",
+            "inhibited-notification": "󰂛",
+            "inhibited-none": "󰪑",
+            "dnd-inhibited-notification": "󰂛",
+            "dnd-inhibited-none": "󰪑"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "custom/waybar-media": {
+        "return-type": "json",
+        "exec": "waybar-media.py status",
+        "on-click": "waybar-media.py playpause",
+        "on-scroll-up": "waybar-media.py previous",
+        "on-scroll-down": "waybar-media.py next",
+        "escape": true,
+        "on-click-right": "spotify"
+    },
+    "bluetooth": {
+        "format": " Bluetooth is {status}",
+        "format-connected": " {device_alias} is connected",
+        "format-connected-battery": " {device_alias} has {device_battery_percentage}% left",
+        // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{used:0.1f}G/{total:0.1f}G of memory used "
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{specific_free:0.2f}GB left in /",
+        "unit": "GB",
+        "path": "/"
+    }
+}

@@ -1,0 +1,127 @@
+* {
+  font:   "Iosevka Nerd Font Medium 11";
+
+  bg0     : #5c5f77;
+  bg1     : #6c6f85;
+  bg2     : #7c7f93;
+  bg3     : #8c8fa1;
+  fg0     : #acb0be;
+  fg1     : #bcc0cc;
+  fg2     : #4c4f69;
+  red     : #d20f39;
+  green   : #40a02b;
+  yellow  : #df8e1d;
+  blue    : #7287fd;
+  magenta : #413d63;
+  cyan    : #209fb5;
+  gold    : #e3c456;
+  darkgold: #baa65d;
+
+  accent: transparent;
+  urgent: @cyan;
+
+  background-color : transparent;
+  text-color       : @bg3;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  location : south;
+  height   : 500px;
+  width    : 750px;
+  x-offset : 4px;
+  y-offset : 26px;
+
+  background-color: rgba(65, 61, 99, 0.7);
+  border: 2px;
+  border-color: @blue;
+  border-radius: 15px;
+}
+
+inputbar {
+  margin   : 3px 3px 5px 3px;
+  spacing  : 8px;
+  padding  : 4px 8px;
+  children : [ icon-search, entry ];
+  border-radius: 10px;
+
+  background-color: @bg0;
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  size     : 14px;
+}
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @bg2;
+}
+
+listview {
+  padding      : 4px 0px;
+  lines        : 12;
+  columns      : 2;
+  scrollbar    : false;
+  fixed-height : false;
+  dynamic      : false;
+}
+
+element {
+  padding : 4px 15px;
+  spacing : 8px;
+  margin  : 5px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @bg3;
+  border-radius: 15px;
+  border: 1px;
+  border-color: @blue;
+}
+
+element alternate active {
+  text-color: @accent;
+}
+
+element selected {
+  text-color       : @bg1;
+  background-color : @accent;
+    border-radius: 15px;
+  border: 1px;
+  border-color: @blue;
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 0.8em;
+}
+
+element-text {
+  text-color: inherit;
+}
+
+scrollbar {
+  handle-width : 4px;
+  handle-color : @fg2;
+  padding      : 0 4px;
+}

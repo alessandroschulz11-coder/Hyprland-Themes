@@ -1,0 +1,152 @@
+@import "colors/one-dark.css";
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: "Noto Sans", "Symbols Nerd Font";
+
+    font-size: 16px;
+    font-weight: bold;
+    min-height: 0;
+    padding: 0;
+    margin: 0 5px;
+
+}
+
+
+
+
+
+#workspaces {
+    background-color: transparent;
+    padding: 5px 3px;
+    margin: 5px 0 5px 10px;
+    border-radius: 15px;
+    border: 1px solid @blue;
+    color: @fg;
+}
+
+#workspaces button {
+    padding: 0px 6px;
+    margin: 0px 5px;
+    border-radius: 7px;
+    color: @bg4;
+    background-color: @bg1;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#workspaces button.active {
+    background-color: @aqua;
+    color: @bg1;
+    min-width: 50px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    border-radius: 10px;
+}
+
+#workspaces button.hover {
+    background-color: @purple;
+    color: @bg0;
+    border-radius: 15px;
+    min-width: 50px;
+    background-size: 400% 400%;
+
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @bg0;
+    border-radius: 15px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#pulseaudio,
+#network,
+#clock,
+#custom-notification,
+#custom-waybar-media,
+#bluetooth,
+#cpu,
+#temperature,
+#memory,
+#disk {
+    background-color: transparent;
+    padding: 0 15px;
+    margin: 10px 20px 10px 20px;
+    border-radius: 15px;
+    border: 1px solid @bg1;
+    border-color: @blue;
+}
+
+#clock {
+    color: @bg3;
+}
+
+#custom-notification {
+    color: @bg3;
+}
+
+#pulseaudio {
+    color: @bg3;
+}
+
+#network {
+    color: @bg3;
+}
+
+#custom-waybar-media {
+    color: @green;
+}
+
+#custom-waybar-media.paused {
+    color: @bg2;
+}
+
+#custom-waybar-media.stopped {
+    color: @fg;
+}
+
+#bluetooth {
+    color: @bg3;
+}
+
+#bluetooth.disabled {
+    color: @bg1;
+}
+
+#cpu {
+    color: @bg3;
+}
+
+#temperature {
+    color: @bg3;
+}
+
+#memory {
+    color: @bg3;
+}
+
+#disk {
+    color: @bg3;
+}
+
+@keyframes slowFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+window#waybar {
+    background-color: rgba(65, 61, 99, 0.5);
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius:15px;
+    border: 1px solid @blue;
+}
