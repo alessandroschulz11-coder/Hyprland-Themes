@@ -1,0 +1,147 @@
+@import "colors/one-dark.css";
+
+* {
+    border: none;
+    border-radius: 0px;
+
+    font-family: "RuneScape UF", "Symbols Nerd Font";
+
+    font-size: 18px;
+    font-weight: bold;
+    min-height: 0;
+    padding: 0;
+    margin: 0 5px;
+
+}
+
+
+
+
+
+#workspaces {
+    background-color: transparent;
+    padding: 5px 3px;
+    margin: 5px 0 5px 10px;
+    color: @fg;
+}
+
+#workspaces button {
+    padding: 0px 6px;
+    margin: 0px 5px;
+    border-radius: 2px;
+    color: @white;
+    background-color: #000000;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+#workspaces button.active {
+    background-color: #000000;
+    color: @white;
+    min-width: 50px;
+    transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    border-radius: 0;
+    border: 3px solid @white;
+}
+
+#workspaces button.hover {
+    background-color: @purple;
+    color: @bg0;
+    border-radius: 15px;
+    min-width: 50px;
+    background-size: 400% 400%;
+
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @bg0;
+    border-radius: 15px;
+    min-width: 50px;
+    background-size: 400% 400%;
+    transition: all 0.3s ease-in-out;
+}
+
+#pulseaudio,
+#network,
+#clock,
+#custom-notification,
+#custom-waybar-media,
+#bluetooth,
+#cpu,
+#temperature,
+#memory,
+#disk {
+    background-color: transparent;
+    padding: 0 15px 0 15px;
+    margin: 10px 20px 10px 20px;
+}
+
+#clock {
+    color: @white;
+}
+
+#custom-notification {
+    color: @white;
+}
+
+#pulseaudio {
+    color: @white;
+}
+
+#network {
+    color: @white;
+}
+
+#custom-waybar-media {
+    color: @green;
+}
+
+#custom-waybar-media.paused {
+    color: @bg2;
+}
+
+#custom-waybar-media.stopped {
+    color: @fg;
+}
+
+#bluetooth {
+    color: @white;
+}
+
+#bluetooth.disabled {
+    color: @bg1;
+}
+
+#cpu {
+    color: @white;
+}
+
+#temperature {
+    color: @white;
+}
+
+#memory {
+    color: @white;
+}
+
+#disk {
+    color: @white;
+}
+
+@keyframes slowFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+window#waybar {
+    background-color: rgba(20, 20, 20, 0.9);
+    padding-bottom: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
